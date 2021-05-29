@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 
 public class Guardarropa {
-  ArrayList<Prenda> prendas;
+  ArrayList<Prenda> prendas = new ArrayList<>();
 
   public Guardarropa(ArrayList<Prenda> prendas) {
     this.prendas = prendas;

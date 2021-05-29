@@ -1,18 +1,10 @@
 public class PropuestaDeQuitar implements Propuesta {
   Prenda prenda;
   Guardarropa guardarropa;
-  Boolean aceptada;
 
-  public PropuestaDeQuitar(Prenda prenda) {
+  public PropuestaDeQuitar(Prenda prenda, Guardarropa guardarropa) {
     this.prenda = prenda;
-  }
-
-  public void setAceptada() {
-    aceptada = true;
-  }
-
-  public boolean fueAceptada() {
-    return aceptada == true;
+    this.guardarropa = guardarropa;
   }
 
   public void ejecutar() {

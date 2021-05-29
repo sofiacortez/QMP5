@@ -1,18 +1,10 @@
 public class PropuestaDeAgregar implements Propuesta {
   Prenda prenda;
   Guardarropa guardarropa;
-  Boolean aceptada;
 
-  public PropuestaDeAgregar(Prenda prenda) {
+  public PropuestaDeAgregar(Prenda prenda, Guardarropa guardarropa) {
     this.prenda = prenda;
-  }
-
-  public void setAceptada() {
-    aceptada = true;
-  }
-
-  public boolean fueAceptada() {
-    return aceptada == true;
+    this.guardarropa = guardarropa;
   }
 
   public void ejecutar() {

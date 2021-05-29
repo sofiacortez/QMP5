@@ -2,9 +2,9 @@
 import java.util.ArrayList;
 
 public class Usuario {
-  ArrayList<Guardarropa> guardarropas;
-  ArrayList<Propuesta> propuestasPendientes;
-  ArrayList<Propuesta> propuestasAceptadas;
+  ArrayList<Guardarropa> guardarropas = new ArrayList<>();
+  ArrayList<Propuesta> propuestasPendientes = new ArrayList<>();
+  ArrayList<Propuesta> propuestasAceptadas = new ArrayList<>();
 
   public Usuario() {}
 
@@ -16,17 +16,9 @@ public class Usuario {
     guardarropas.add(guardarropa);
   }
 
-  public void enviarPropuesta(Usuario usuario, Propuesta propuesta) {
-    usuario.recibirPropuesta(propuesta);
-  }
-
-  public void recibirPropuesta(Propuesta propuesta) {
-    agregarPropuestaPendiente(propuesta);
-  }
-
   public void aceptarPropuesta(Propuesta propuesta) {
     quitarPropuestaPendiente(propuesta);
-    propuesta.setAceptada();
+    agregarPropuestaAceptada(propuesta);
     propuesta.ejecutar();
   }
 
@@ -42,9 +34,16 @@ public class Usuario {
     propuestasPendientes.remove(propuesta);
   }
 
-  public void deshacerPropuesta(Propuesta propuesta) {
-    if (propuesta.fueAceptada()) {
-      propuesta.deshacer();
-    }
+  public void agregarPropuestaAceptada(Propuesta propuesta) {
+    propuestasAceptadas.add(propuesta);
+  }
+
+  public void quitarPropuestaAceptada(Propuesta propuesta) {
+    propuestasAceptadas.remove(propuesta);
+  }
+
+  public void deshacerPropuesta(Propuesta propuestaAceptada) {
+    propuestaAceptada.deshacer();
+    quitarPropuestaAceptada(propuestaAceptada);
   }
 }
